@@ -87,6 +87,14 @@ app.use("/api/v1/reservations", reservationRoutes);
 app.use("/api/v1/reports", reportRoutes);
 app.use("/api/v1/data-management", dataManagementRoutes);
 
+const PORT = process.env.PORT || 10000;
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+module.exports = app;
+
 // ── Health check ──────────────────────────────────────────────────────────────
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", message: "Library Management API is running" });
